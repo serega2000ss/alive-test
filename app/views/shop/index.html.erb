@@ -1,2 +1,80 @@
+<script type="text/javascript">
+  jQuery( document ).ready(function() {
+
+    // Handle GET request
+    jQuery('a.cors-request-get-link').click(function(e){
+      event.preventDefault();
+      var url = jQuery(this).data('url');
+
+      //This will not work!
+      // $.ajax({
+      //   url: 'http://test-main.com:3000/dashboard/get_cors',
+      //   success: function(result){
+      //     $('div.cors-respond-container').html(result);
+      //   }
+      // });
+
+      // This actually works
+      jQuery.ajax({
+        type: 'GET',
+        url: url,
+        contentType: 'text/plain',
+        xhrFields: {
+          withCredentials: true
+        },
+        headers: {
+        },
+        success: function(data) {
+          jQuery('div.cors-respond-container').html(data);
+        },
+        error: function() {
+        }
+      });
+    });
+
+
+    // Handle POST request
+    jQuery('a.cors-request-post-link').click(function(e){
+      event.preventDefault();
+      var url = jQuery(this).data('url');
+      jQuery.ajax({
+        type: 'POST',
+        url: url,
+        data:{
+          customer: {
+            id: "100",
+            first_name: "John",
+            last_name: "Doe",
+          },
+        },
+        contentType: 'application/x-www-form-urlencoded',
+        xhrFields: {
+          withCredentials: true
+        },
+        headers: {
+        },
+        success: function(data) {
+          jQuery('div.cors-respond-container').html(data);
+        },
+        error: function() {
+        }
+      });
+    });
+
+  });
+</script>
+
 <h1>Shop</h1>
 <%= render 'shared/menu' %>
+
+
+<h3>CORS AJAX Requests:</h3>
+<ul>
+  <li><a href="#" class="cors-request-get-link", data-url="<%= get_cors_dashboard_index_url(host: 'test-main.com') %>">Make GET CORS request to Dashboard</a></li>
+  <li><a href="#" class="cors-request-post-link", data-url="<%= post_cors_dashboard_index_url(host: 'test-main.com') %>">Make POST CORS request to Dashboard</a></li>
+</ul>
+
+<br/>
+<span>CORS respond:</span>
+<br/>
+<div class="cors-respond-container"></div>
