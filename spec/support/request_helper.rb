@@ -10,7 +10,7 @@ class RequestService
     elsif method == :post
       request = Net::HTTP::Post.new(uri.request_uri)
     end
-    request.basic_auth('XXXXXXXX', 'YYYYYYY') if basic_auth
+    request.basic_auth('XXXXX', 'YYYYYY') if basic_auth
     http.request(request)
   end
 end

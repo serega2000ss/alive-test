@@ -8,4 +8,9 @@ RSpec.feature 'Testing Store Engine URL', type: :feature do
     expect(response.body).to have_content('How it works')
   end
 
+  it 'Visit brand home page' do
+    response = RequestService.send_request('https://test99.alivesecondo.shoes/how')
+    expect(response.code).to eq('404')
+  end
+
 end
