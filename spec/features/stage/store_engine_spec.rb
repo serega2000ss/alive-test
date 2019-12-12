@@ -10,7 +10,7 @@ RSpec.feature 'Testing Store Engine URL', type: :feature do
     expect(response.body).to have_content('aoeuoeua')
   end
 
-  it 'Chech brand 404 on "/how" path' do
+  it 'Check brand 404 on "/how" path' do
     response = RequestService.send_request("#{barand_url}/how")
     expect(response.code).to eq('404')
   end
