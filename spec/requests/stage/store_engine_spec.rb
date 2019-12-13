@@ -1,8 +1,8 @@
 require "rails_helper"
 
-RSpec.feature 'Testing Store Engine URL', type: :feature do
+barand_url = Rails.application.config_for(:testing_keys)['barand_url']
 
-  barand_url = Rails.application.config_for(:testing_keys)['barand_url']
+RSpec.feature "Testing Store Engine URL: #{barand_url}", type: :feature do
 
   it 'Visit brand home page' do
     response = RequestService.send_request(barand_url)
@@ -10,7 +10,7 @@ RSpec.feature 'Testing Store Engine URL', type: :feature do
     expect(response.body).to have_content('aoeuoeua')
   end
 
-  it 'Check brand 404 on "/how" path' do
+  it 'Check brand /how page - get 404' do
     response = RequestService.send_request("#{barand_url}/how")
     expect(response.code).to eq('404')
   end
@@ -41,5 +41,15 @@ RSpec.feature 'Testing Store Engine URL', type: :feature do
   it 'Visit brand /privacy page' do
     response = RequestService.send_request("#{barand_url}/contact")
     expect(response.code).to eq('200')
+  end
+
+  it 'Visit brand /camden page - get 404' do
+    response = RequestService.send_request("#{barand_url}/camden")
+    expect(response.code).to eq('404')
+  end
+
+  it 'Visit brand /camden page - get 301 redirect' do
+    response = RequestService.send_request("#{barand_url}/shshsh")
+    expect(response.code).to eq('301')
   end
 end

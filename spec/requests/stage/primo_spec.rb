@@ -2,7 +2,7 @@ require "rails_helper"
 
 primo_url = Rails.application.config_for(:testing_keys)['primo_url']
 
-RSpec.feature 'Testing Primo URLs', type: :feature do
+RSpec.feature "Testing Primo URL: #{primo_url}", type: :feature do
 
   it 'Visit primo home page' do
     response = RequestService.send_request(primo_url)
@@ -78,7 +78,7 @@ RSpec.feature 'Testing Primo URLs', type: :feature do
 end
 
 
-RSpec.feature 'Testing Primo brand URLs', type: :feature do
+RSpec.feature "Testing Primo brand URL: #{primo_url}", type: :feature do
 
   it 'Visit /brand/1898brand page' do
     response = RequestService.send_request("#{primo_url}/brand/1898brand")
