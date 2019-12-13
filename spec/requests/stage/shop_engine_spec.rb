@@ -1,6 +1,6 @@
 require "rails_helper"
 
-shop_url = Rails.application.config_for(:testing_keys)['shop_url']
+shop_url = Rails.application.config_for(:testing_keys)['primo_shop_url']
 
 RSpec.feature "Testing Shop Engine URL: #{shop_url}", type: :feature do
 

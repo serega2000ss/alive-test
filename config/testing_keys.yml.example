@@ -1,9 +1,16 @@
 default: &default
   basic_auth_user_name: 'XXXXXXX'
   basic_auth_password: 'YYYYYYY'
+
   primo_url: 'https://www.aliveprimo.shoes'
-  shop_url: 'https://www.aliveprimo.shoes/shshsh'
-  barand_url: 'https://test99.alivesecondo.shoes'
+  primo_shop_url: 'https://www.aliveprimo.shoes/shshsh'
+  primo_brand_url: 'https://test99.alivesecondo.shoes'
+
+  production_url: 'https://www.aliveshoes.com'
+  production_basic_shop_url: 'https://test.limitededition.shoes/test-shoe-slug'
+  production_basic_brand_url: 'https://test.limitededition.shoes'
+  production_premium_shop_url: 'https://luxuryitalian.shoes/test-shoe-slug'
+  production_premium_brand_url: 'https://luxuryitalian.shoes'
 
 development: *default
 

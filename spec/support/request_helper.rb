@@ -18,4 +18,9 @@ class RequestService
     request.basic_auth(testing_keys['basic_auth_user_name'], testing_keys['basic_auth_password']) if basic_auth
     http.request(request)
   end
+
+  def self.send_prod_request(request_url, method = :get)
+    send_request(request_url, method, false)
+  end
+
 end
