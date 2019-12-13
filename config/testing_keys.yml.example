@@ -1,6 +1,9 @@
 default: &default
   basic_auth_user_name: 'XXXXXXX'
   basic_auth_password: 'YYYYYYY'
+  primo_url: 'https://www.aliveprimo.shoes'
+  shop_url: 'https://www.aliveprimo.shoes/shshsh'
+  barand_url: 'https://test99.alivesecondo.shoes'
 
 development: *default
 

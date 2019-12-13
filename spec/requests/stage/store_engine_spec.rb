@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature 'Testing Store Engine URL', type: :feature do
 
-  barand_url = 'https://test99.alivesecondo.shoes'
+  barand_url = Rails.application.config_for(:testing_keys)['barand_url']
 
   it 'Visit brand home page' do
     response = RequestService.send_request(barand_url)
