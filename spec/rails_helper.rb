@@ -37,7 +37,7 @@ end
 # Capybara.app_host = 'https://test99.alivesecondo.shoes'
 # Capybara.asset_host = 'http://coslocal.com' # for html screenshots
 Capybara::Screenshot.prune_strategy = :keep_last_run
-
+Capybara.run_server = false
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
