@@ -1,5 +1,10 @@
 class RequestService
 
+  def self.testing_keys
+    @testing_keys ||= Rails.application.config_for(:testing_keys)
+  end
+
+
   def self.send_request(request_url, method = :get, basic_auth = true)
     uri = URI.parse(request_url)
     http = Net::HTTP.new(uri.host, uri.port)
@@ -10,7 +15,7 @@ class RequestService
     elsif method == :post
       request = Net::HTTP::Post.new(uri.request_uri)
     end
-    request.basic_auth('XXXXX', 'YYYYYY') if basic_auth
+    request.basic_auth(testing_keys['basic_auth_user_name'], testing_keys['basic_auth_password']) if basic_auth
     http.request(request)
   end
 end

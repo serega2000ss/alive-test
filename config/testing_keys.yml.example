@@ -1,0 +1,7 @@
+default: &default
+  basic_auth_user_name: 'XXXXXXX'
+  basic_auth_password: 'YYYYYYY'
+
+development: *default
+
+test: *default
