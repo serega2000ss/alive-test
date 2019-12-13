@@ -48,7 +48,7 @@ RSpec.feature "Testing Store Engine URL: #{barand_url}", type: :feature do
     expect(response.code).to eq('404')
   end
 
-  it 'Visit brand /camden page - get 301 redirect' do
+  it 'Visit brand /shshsh page - get 301 redirect' do
     response = RequestService.send_request("#{barand_url}/shshsh")
     expect(response.code).to eq('301')
   end
