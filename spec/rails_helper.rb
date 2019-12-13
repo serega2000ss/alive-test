@@ -16,30 +16,27 @@ require 'capybara/email/rspec'
 require 'capybara-screenshot/rspec'
 require 'remote_http_testing'
 
-Capybara.app_host = 'http://en.wikipedia.org'
-Capybara.run_server = false # don't start Rack
+require 'selenium-webdriver'
 
-# require 'selenium-webdriver'
-#
-# Capybara.javascript_driver = :selenium
-# Capybara.register_driver :selenium do |app|
-#   capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-#     chromeOptions: {
-#       args: ['window-size=1920,1080', 'disable-gpu']
-#     },
-#     enableVNC: true
-#   )
-#
-#   Capybara::Selenium::Driver.new(
-#     app,
-#     browser: :remote,
-#     url: 'http://selenoid:4444/wd/hub',
-#     desired_capabilities: capabilities
-#   )
-# end
+Capybara.javascript_driver = :selenium
+Capybara.register_driver :selenium do |app|
+  capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
+    chromeOptions: {
+      args: ['window-size=1920,1080', 'disable-gpu']
+    },
+    enableVNC: true
+  )
+
+  Capybara::Selenium::Driver.new(
+    app,
+    browser: :remote,
+    url: 'http://localhost:4444/wd/hub',
+    desired_capabilities: capabilities
+  )
+end
 # Capybara.app_host = 'https://test99.alivesecondo.shoes'
-# # Capybara.asset_host = 'http://coslocal.com' # for html screenshots
-# Capybara::Screenshot.prune_strategy = :keep_last_run
+# Capybara.asset_host = 'http://coslocal.com' # for html screenshots
+Capybara::Screenshot.prune_strategy = :keep_last_run
 
 
 # Requires supporting ruby files with custom matchers and macros, etc, in

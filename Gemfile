@@ -60,6 +60,6 @@ group :test do
   gem 'capybara-screenshot', '~> 1.0', '>= 1.0.21'
   gem 'remote_http_testing', '~> 0.1.4'
   gem 'awesome_print'
-  # gem 'chromedriver-helper', '~> 1.2'
-  # gem 'selenium-webdriver'
+  gem 'chromedriver-helper', '~> 1.2'
+  gem 'selenium-webdriver'
 end
