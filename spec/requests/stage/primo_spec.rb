@@ -80,43 +80,43 @@ end
 
 RSpec.feature "Testing Primo brand URL: #{primo_url}", type: :feature do
 
-  it 'Visit /brand/1898brand page' do
+  it 'Visit primo /brand/1898brand page' do
     response = RequestService.send_request("#{primo_url}/brand/1898brand")
     expect(response.code).to eq('200')
     expect(response.body).to have_content('1898 is a Footwear-inspired brand')
   end
 
-  it 'Visit /1898 page' do
+  it 'Visit primo /1898 page' do
     response = RequestService.send_request("#{primo_url}/1898")
     expect(response.code).to eq('200')
     expect(response.body).to have_content('1898’S shoes!')
   end
 
-  it 'Visit /1898/faq page' do
+  it 'Visit primo /1898/faq page' do
     response = RequestService.send_request("#{primo_url}/1898/faq")
     expect(response.code).to eq('200')
     expect(response.body).to have_content('How can I track my order?')
   end
 
-  it 'Visit /1898/terms page' do
+  it 'Visit primo /1898/terms page' do
     response = RequestService.send_request("#{primo_url}/1898/terms")
     expect(response.code).to eq('200')
     expect(response.body).to have_content('Information about us')
   end
 
-  it 'Visit /1898/claims page' do
+  it 'Visit primo /1898/claims page' do
     response = RequestService.send_request("#{primo_url}/1898/claims")
     expect(response.code).to eq('200')
     expect(response.body).to have_content('Would you like to...')
   end
 
-  it 'Visit /1898/privacy page' do
+  it 'Visit primo /1898/privacy page' do
     response = RequestService.send_request("#{primo_url}/1898/privacy")
     expect(response.code).to eq('200')
     # the content is loaded in by ajax, can't really check it
   end
 
-  it 'Visit /1898/contact page' do
+  it 'Visit primo /1898/contact page' do
     response = RequestService.send_request("#{primo_url}/1898/contact")
     expect(response.code).to eq('200')
     expect(response.body).to have_content('If you have any question or complain')

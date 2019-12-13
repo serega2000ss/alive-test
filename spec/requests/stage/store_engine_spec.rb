@@ -2,7 +2,7 @@ require "rails_helper"
 
 brand_url = Rails.application.config_for(:testing_keys)['primo_brand_url']
 
-RSpec.feature "Testing Store Engine URL: #{brand_url}", type: :feature do
+RSpec.feature "Testing Primo Store Engine URL: #{brand_url}", type: :feature do
 
   it 'Visit brand home page' do
     response = RequestService.send_request(brand_url)
