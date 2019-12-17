@@ -65,15 +65,3 @@ RSpec.feature "Testing Production Basic Store Engine URL: #{brand_url}", type: :
     expect(response.code).to eq('404')
   end
 end
-
-
-
-# https://badd-bany9.alivesecondo.shoes/build/concept => 404
-# https://badd-bany9.alivesecondo.shoes/admin_dashboard => 404
-#
-# luxuryitalian.shoes/build/concept
-# luxuryitalian.shoes/admin_dashboard
-#
-# test.limitededition.shoes/build/concept
-# test.limitededition.shoes/admin_dashboard
-
