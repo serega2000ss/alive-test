@@ -9,7 +9,7 @@ RSpec.feature "Testing Production Basic Store Engine URL: #{brand_url}", type: :
   it 'Visit brand home page' do
     response = RequestService.send_request(brand_url)
     expect(response.code).to eq('200')
-    expect(response.body).to have_content('aoeuoeua')
+    expect(response.body).to have_content('test')
   end
 
   it 'Check brand /how page - get 404' do
@@ -51,16 +51,16 @@ RSpec.feature "Testing Production Basic Store Engine URL: #{brand_url}", type: :
   end
 
   it 'Visit brand /shshsh page - get 301 redirect' do
-    response = RequestService.send_request("#{brand_url}/shshsh")
+    response = RequestService.send_request("#{brand_url}/saasaaa")
     expect(response.code).to eq('301')
   end
 
-  it 'Visit brand /build/concept page - get 404 redirect' do
+  it 'Visit brand /build/concept page - get 404' do
     response = RequestService.send_request("#{brand_url}/build/concept")
     expect(response.code).to eq('404')
   end
 
-  it 'Visit brand /admin_dashboard page - get 404 redirect' do
+  it 'Visit brand /admin_dashboard page - get 404' do
     response = RequestService.send_request("#{brand_url}/admin_dashboard")
     expect(response.code).to eq('404')
   end

@@ -122,3 +122,12 @@ RSpec.feature "Testing Production brand URL: #{production_url}", type: :feature 
     expect(response.body).to have_content('If you have any question or complain')
   end
 end
+
+
+RSpec.feature "Testing Marco's Production brand URL: #{production_url}", type: :feature do
+  it 'Visit production /brand/marco-ferroni' do
+    response = RequestService.send_prod_request("#{production_url}/brand/marco-ferroni")
+    expect(response.code).to eq('200')
+    expect(response.body).to have_content('marcof')
+  end
+end
