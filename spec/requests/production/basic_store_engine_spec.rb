@@ -4,54 +4,76 @@ brand_url = Rails.application.config_for(:testing_keys)['production_basic_brand_
 
 RSpec.feature "Testing Production Basic Store Engine URL: #{brand_url}", type: :feature do
 
-  pending('pending....')
+  # pending('pending....')
 
-  # it 'Visit brand home page' do
-  #   response = RequestService.send_request(brand_url)
-  #   expect(response.code).to eq('200')
-  #   expect(response.body).to have_content('aoeuoeua')
-  # end
-  #
-  # it 'Check brand /how page - get 404' do
-  #   response = RequestService.send_request("#{brand_url}/how")
-  #   expect(response.code).to eq('404')
-  # end
-  #
-  # it 'Visit brand /faq page' do
-  #   response = RequestService.send_request("#{brand_url}/faq")
-  #   expect(response.code).to eq('200')
-  #   expect(response.body).to have_content('How can I track my order?')
-  # end
-  #
-  # it 'Visit brand /terms page' do
-  #   response = RequestService.send_request("#{brand_url}/terms")
-  #   expect(response.code).to eq('200')
-  #   expect(response.body).to have_content('Information about us')
-  # end
-  #
-  # it 'Visit brand /claims page' do
-  #   response = RequestService.send_request("#{brand_url}/claims")
-  #   expect(response.code).to eq('200')
-  #   expect(response.body).to have_content('Would you like to...')
-  # end
-  #
-  # it 'Visit brand /privacy page' do
-  #   response = RequestService.send_request("#{brand_url}/privacy")
-  #   expect(response.code).to eq('200')
-  # end
-  #
-  # it 'Visit brand /privacy page' do
-  #   response = RequestService.send_request("#{brand_url}/contact")
-  #   expect(response.code).to eq('200')
-  # end
-  #
-  # it 'Visit brand /camden page - get 404' do
-  #   response = RequestService.send_request("#{brand_url}/camden")
-  #   expect(response.code).to eq('404')
-  # end
-  #
-  # it 'Visit brand /shshsh page - get 301 redirect' do
-  #   response = RequestService.send_request("#{brand_url}/shshsh")
-  #   expect(response.code).to eq('301')
-  # end
+  it 'Visit brand home page' do
+    response = RequestService.send_request(brand_url)
+    expect(response.code).to eq('200')
+    expect(response.body).to have_content('aoeuoeua')
+  end
+
+  it 'Check brand /how page - get 404' do
+    response = RequestService.send_request("#{brand_url}/how")
+    expect(response.code).to eq('404')
+  end
+
+  it 'Visit brand /faq page' do
+    response = RequestService.send_request("#{brand_url}/faq")
+    expect(response.code).to eq('200')
+    expect(response.body).to have_content('How can I track my order?')
+  end
+
+  it 'Visit brand /terms page' do
+    response = RequestService.send_request("#{brand_url}/terms")
+    expect(response.code).to eq('200')
+    expect(response.body).to have_content('Information about us')
+  end
+
+  it 'Visit brand /claims page' do
+    response = RequestService.send_request("#{brand_url}/claims")
+    expect(response.code).to eq('200')
+    expect(response.body).to have_content('Would you like to...')
+  end
+
+  it 'Visit brand /privacy page' do
+    response = RequestService.send_request("#{brand_url}/privacy")
+    expect(response.code).to eq('200')
+  end
+
+  it 'Visit brand /privacy page' do
+    response = RequestService.send_request("#{brand_url}/contact")
+    expect(response.code).to eq('200')
+  end
+
+  it 'Visit brand /camden page - get 404' do
+    response = RequestService.send_request("#{brand_url}/camden")
+    expect(response.code).to eq('404')
+  end
+
+  it 'Visit brand /shshsh page - get 301 redirect' do
+    response = RequestService.send_request("#{brand_url}/shshsh")
+    expect(response.code).to eq('301')
+  end
+
+  it 'Visit brand /build/concept page - get 404 redirect' do
+    response = RequestService.send_request("#{brand_url}/build/concept")
+    expect(response.code).to eq('404')
+  end
+
+  it 'Visit brand /admin_dashboard page - get 404 redirect' do
+    response = RequestService.send_request("#{brand_url}/admin_dashboard")
+    expect(response.code).to eq('404')
+  end
 end
+
+
+
+# https://badd-bany9.alivesecondo.shoes/build/concept => 404
+# https://badd-bany9.alivesecondo.shoes/admin_dashboard => 404
+#
+# luxuryitalian.shoes/build/concept
+# luxuryitalian.shoes/admin_dashboard
+#
+# test.limitededition.shoes/build/concept
+# test.limitededition.shoes/admin_dashboard
+

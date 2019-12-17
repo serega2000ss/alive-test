@@ -52,4 +52,14 @@ RSpec.feature "Testing Primo Store Engine URL: #{brand_url}", type: :feature do
     response = RequestService.send_request("#{brand_url}/shshsh")
     expect(response.code).to eq('301')
   end
+
+  it 'Visit brand /build/concept page - get 404 redirect' do
+    response = RequestService.send_request("#{brand_url}/build/concept")
+    expect(response.code).to eq('404')
+  end
+
+  it 'Visit brand /admin_dashboard page - get 404 redirect' do
+    response = RequestService.send_request("#{brand_url}/admin_dashboard")
+    expect(response.code).to eq('404')
+  end
 end
